@@ -52,7 +52,7 @@ export default function Home() {
             </TableHead>
             <TableBody>
               {movements.map((movement) => (
-                <TableRow>
+                <TableRow key={`movement-${movement.idProduto}`}>
                   <TableHeader>{movement.nomeProduto}</TableHeader>
                   <TableData>{movement.tipo}</TableData>
                   <TableData>
@@ -80,7 +80,7 @@ export default function Home() {
             </TableHead>
             <TableBody>
               {products.map((product) => (
-                <TableRow>
+                <TableRow key={`product-${product.id}`}>
                   <TableHeader>{product.nome}</TableHeader>
                   <TableData>{formatCurrency(product.preco)}</TableData>
                   <TableData>{product.quantidade}</TableData>
