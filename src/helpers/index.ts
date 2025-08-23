@@ -13,7 +13,7 @@ export function formatCurrency(value: number): string {
   });
 }
 
-export function formatDateBR(date: Date | string): string {
+export function formatDate(date: Date | string): string {
   const d = typeof date === "string" ? parseISO(date) : date;
   return format(d, "dd/MM/yyyy");
 }
