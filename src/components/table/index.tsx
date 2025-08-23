@@ -9,7 +9,7 @@ type TableDataProps = React.ComponentPropsWithoutRef<"td">;
 
 export function Table({ children, className, ...props }: TableProps) {
   return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div className="relative overflow-x-auto border border-gray-200 rounded-lg shadow-md">
       <table
         className={cn(
           "w-full text-sm text-left rtl:text-right text-gray-500",
