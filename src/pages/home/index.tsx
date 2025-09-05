@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Pencil, Trash2 } from "lucide-react";
 import Subheading from "../../components/subheading";
 import {
   formatCurrency,
@@ -17,6 +18,7 @@ import {
 import findAllProductsService from "../../services/find-all-products.service";
 import type { TProduct } from "../../@types/product";
 import Header from "../../components/header";
+import Button from "../../components/button";
 
 export default function Home() {
   const [products, setProducts] = useState<TProduct[]>([]);
@@ -32,7 +34,7 @@ export default function Home() {
 
   const renderProductStatus = (status: string) => {
     return (
-      <span className="text-neutral-900 text-xs font-semibold uppercase bg-neutral-200 px-2 py-1 rounded-full">
+      <span className="text-white text-xs font-semibold whitespace-nowrap uppercase bg-neutral-600 px-2 py-1 rounded-full">
         {getProductStatusLabel(status)}
       </span>
     );
@@ -55,6 +57,7 @@ export default function Home() {
               <TableHeader>Situação</TableHeader>
               <TableHeader>Data de entrada</TableHeader>
               <TableHeader>Última saída</TableHeader>
+              <TableHeader>Ações</TableHeader>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -66,6 +69,18 @@ export default function Home() {
                 <TableData>{renderProductStatus(product.status)}</TableData>
                 <TableData>{formatDate(product.created_at)}</TableData>
                 <TableData>{formatDateTime(product.updated_at)}</TableData>
+                <TableData>
+                  <div className="flex gap-2">
+                    <Button>
+                      <Pencil size={16} />
+                      <span>Editar</span>
+                    </Button>
+                    <Button className="bg-red-500 hover:bg-red-400">
+                      <Trash2 size={16} />
+                      <span>Excluir</span>
+                    </Button>
+                  </div>
+                </TableData>
               </TableRow>
             ))}
           </TableBody>
