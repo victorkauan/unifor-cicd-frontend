@@ -130,28 +130,36 @@ export default function Home() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {products.map((product) => (
-                <TableRow key={`product-${product.id}`}>
-                  <TableHeader>{product.name}</TableHeader>
-                  <TableData>{formatCurrency(product.price)}</TableData>
-                  <TableData>{product.quantity}</TableData>
-                  <TableData>{renderProductStatus(product.status)}</TableData>
-                  <TableData>{formatDate(product.created_at)}</TableData>
-                  <TableData>{formatDateTime(product.updated_at)}</TableData>
-                  <TableData>
-                    <div className="flex gap-2">
-                      <Button>
-                        <Pencil size={16} />
-                        <span>Editar</span>
-                      </Button>
-                      <Button className="bg-red-500 hover:bg-red-400">
-                        <Trash2 size={16} />
-                        <span>Excluir</span>
-                      </Button>
-                    </div>
+              {products.length ? (
+                products.map((product) => (
+                  <TableRow key={`product-${product.id}`}>
+                    <TableHeader>{product.name}</TableHeader>
+                    <TableData>{formatCurrency(product.price)}</TableData>
+                    <TableData>{product.quantity}</TableData>
+                    <TableData>{renderProductStatus(product.status)}</TableData>
+                    <TableData>{formatDate(product.created_at)}</TableData>
+                    <TableData>{formatDateTime(product.updated_at)}</TableData>
+                    <TableData>
+                      <div className="flex gap-2">
+                        <Button>
+                          <Pencil size={16} />
+                          <span>Editar</span>
+                        </Button>
+                        <Button className="bg-red-500 hover:bg-red-400">
+                          <Trash2 size={16} />
+                          <span>Excluir</span>
+                        </Button>
+                      </div>
+                    </TableData>
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableData className="text-center" colSpan={7}>
+                    Nenhum registro encontrado.
                   </TableData>
                 </TableRow>
-              ))}
+              )}
             </TableBody>
           </Table>
         </div>
