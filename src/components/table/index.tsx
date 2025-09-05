@@ -27,7 +27,7 @@ export function TableHead({ children, className, ...props }: TableHeadProps) {
   return (
     <thead
       className={cn(
-        "text-xs text-neutral-900 border-b border-neutral-200 shadow uppercase",
+        "text-xs text-neutral-900 border-b-2 border-neutral-200 uppercase",
         className
       )}
       {...props}
@@ -49,7 +49,7 @@ export function TableRow({ children, className, ...props }: TableRowProps) {
   return (
     <tr
       className={cn(
-        "[&:not(:last-child)]border-b border-neutral-200 hover:bg-neutral-100",
+        "[&:not(:last-child)]:border-b-2 border-neutral-200 hover:bg-neutral-100",
         className
       )}
       {...props}
