@@ -9,10 +9,10 @@ type TableDataProps = React.ComponentPropsWithoutRef<"td">;
 
 export function Table({ children, className, ...props }: TableProps) {
   return (
-    <div className="relative overflow-x-auto border border-gray-200 rounded-lg shadow-md">
+    <div className="border-2 border-neutral-200 rounded-lg relative overflow-x-auto">
       <table
         className={cn(
-          "w-full text-sm text-left rtl:text-right text-gray-500",
+          "w-full text-sm text-left rtl:text-right text-neutral-900",
           className
         )}
         {...props}
@@ -26,7 +26,10 @@ export function Table({ children, className, ...props }: TableProps) {
 export function TableHead({ children, className, ...props }: TableHeadProps) {
   return (
     <thead
-      className={cn("text-xs text-gray-700 uppercase bg-gray-50", className)}
+      className={cn(
+        "text-xs text-neutral-900 border-b border-neutral-200 shadow uppercase",
+        className
+      )}
       {...props}
     >
       {children}
@@ -46,7 +49,7 @@ export function TableRow({ children, className, ...props }: TableRowProps) {
   return (
     <tr
       className={cn(
-        "bg-white border-b border-gray-200 hover:bg-gray-50",
+        "[&:not(:last-child)]border-b border-neutral-200 hover:bg-neutral-100",
         className
       )}
       {...props}
@@ -62,7 +65,7 @@ export function TableHeader({
   ...props
 }: TableHeaderProps) {
   return (
-    <th className={cn("px-6 py-3", className)} {...props}>
+    <th className={cn("px-5 py-4", className)} {...props}>
       {children}
     </th>
   );
@@ -70,7 +73,7 @@ export function TableHeader({
 
 export function TableData({ children, className, ...props }: TableDataProps) {
   return (
-    <td className={cn("px-6 py-4", className)} {...props}>
+    <td className={cn("p-5", className)} {...props}>
       {children}
     </td>
   );

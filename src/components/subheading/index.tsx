@@ -8,7 +8,10 @@ export default function Subheading({
   ...props
 }: THeadingProps) {
   return (
-    <h2 className={cn("text-gray-700 text-lg font-bold", className)} {...props}>
+    <h2
+      className={cn("text-neutral-900 text-2xl font-bold", className)}
+      {...props}
+    >
       {children}
     </h2>
   );

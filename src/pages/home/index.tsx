@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import Subheading from "../../components/subheading";
-import { formatCurrency, formatDate, formatDateTime } from "../../helpers";
+import {
+  formatCurrency,
+  formatDate,
+  formatDateTime,
+  getProductStatusLabel,
+} from "../../helpers";
 import {
   Table,
   TableBody,
@@ -25,38 +30,47 @@ export default function Home() {
     fetchProducts();
   }, []);
 
+  const renderProductStatus = (status: string) => {
+    return (
+      <span className="text-neutral-900 text-xs font-semibold uppercase bg-neutral-200 px-2 py-1 rounded-full">
+        {getProductStatusLabel(status)}
+      </span>
+    );
+  };
+
   return (
-    <>
+    <main className="text-neutral-900 h-screen bg-white pt-36 px-8">
       <Header />
-      <main className="max-w-7xl mx-auto p-4 flex flex-col gap-4">
-        <section className="flex flex-col gap-2">
+      <section className="max-w-7xl mx-auto flex flex-col gap-4">
+        <div>
           <Subheading>Produtos</Subheading>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableHeader>Nome</TableHeader>
-                <TableHeader>Preço</TableHeader>
-                <TableHeader>Quantidade</TableHeader>
-                <TableHeader>Estoque baixo</TableHeader>
-                <TableHeader>Data de entrada</TableHeader>
-                <TableHeader>Última saída</TableHeader>
+          <p>Gerencie seu inventário de produtos.</p>
+        </div>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableHeader>Nome</TableHeader>
+              <TableHeader>Preço</TableHeader>
+              <TableHeader>Quantidade</TableHeader>
+              <TableHeader>Situação</TableHeader>
+              <TableHeader>Data de entrada</TableHeader>
+              <TableHeader>Última saída</TableHeader>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {products.map((product) => (
+              <TableRow key={`product-${product.id}`}>
+                <TableHeader>{product.name}</TableHeader>
+                <TableData>{formatCurrency(product.price)}</TableData>
+                <TableData>{product.quantity}</TableData>
+                <TableData>{renderProductStatus(product.status)}</TableData>
+                <TableData>{formatDate(product.created_at)}</TableData>
+                <TableData>{formatDateTime(product.updated_at)}</TableData>
               </TableRow>
-            </TableHead>
-            <TableBody>
-              {products.map((product) => (
-                <TableRow key={`product-${product.id}`}>
-                  <TableHeader>{product.name}</TableHeader>
-                  <TableData>{formatCurrency(product.price)}</TableData>
-                  <TableData>{product.quantity}</TableData>
-                  <TableData>{product.status}</TableData>
-                  <TableData>{formatDate(product.created_at)}</TableData>
-                  <TableData>{formatDateTime(product.updated_at)}</TableData>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </section>
-      </main>
-    </>
+            ))}
+          </TableBody>
+        </Table>
+      </section>
+    </main>
   );
 }
