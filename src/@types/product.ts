@@ -1,9 +1,9 @@
 export type TProduct = {
-  id: string;
-  nome: string;
-  preco: number;
-  quantidade: number;
-  estoqueBaixo: boolean;
-  dataEntrada: string;
-  ultimaSaida: string | null;
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+  status: string;
+  created_at: string;
+  updated_at: string;
 };
