@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Pencil, Trash2 } from "lucide-react";
+import { Pencil, Plus, Trash2 } from "lucide-react";
 import Subheading from "../../components/subheading";
 import {
   formatCurrency,
@@ -44,9 +44,15 @@ export default function Home() {
     <main className="text-neutral-900 h-screen bg-white pt-36 px-8">
       <Header />
       <section className="max-w-7xl mx-auto flex flex-col gap-4">
-        <div>
-          <Subheading>Produtos</Subheading>
-          <p>Gerencie seu inventário de produtos.</p>
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <Subheading>Produtos</Subheading>
+            <p>Gerencie seu inventário de produtos.</p>
+          </div>
+          <Button>
+            <Plus size={20} />
+            <span>Adicionar produto</span>
+          </Button>
         </div>
         <Table>
           <TableHead>
