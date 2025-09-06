@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import {
   CircleAlert,
   Package,
-  Pencil,
   Trash2,
   TrendingUp,
   TriangleAlert,
@@ -26,6 +25,7 @@ import Header from "../../components/header";
 import Button from "../../components/button";
 import DashboardCard from "../../components/dashboard-card";
 import StoreProductModal from "../../components/store-product-modal";
+import UpdateProductModal from "../../components/update-product-modal";
 import findAllProductsService from "../../services/find-all-products.service";
 import productsDashboardService from "../../services/product-dashboard.service";
 import type { TProduct, TProductDashboard } from "../../@types/product";
@@ -138,10 +138,7 @@ export default function Home() {
                     <TableData>{formatDateTime(product.updated_at)}</TableData>
                     <TableData>
                       <div className="flex gap-2">
-                        <Button>
-                          <Pencil size={16} />
-                          <span>Editar</span>
-                        </Button>
+                        <UpdateProductModal product={product} />
                         <Button className="bg-red-500 hover:bg-red-400">
                           <Trash2 size={16} />
                           <span>Excluir</span>
