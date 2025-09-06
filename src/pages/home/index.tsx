@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import {
   CircleAlert,
   Package,
-  Trash2,
   TrendingUp,
   TriangleAlert,
 } from "lucide-react";
@@ -22,10 +21,10 @@ import {
   TableRow,
 } from "../../components/table";
 import Header from "../../components/header";
-import Button from "../../components/button";
 import DashboardCard from "../../components/dashboard-card";
 import StoreProductModal from "../../components/store-product-modal";
 import UpdateProductModal from "../../components/update-product-modal";
+import DestroyProductModal from "../../components/update-product-modal/destroy-product-modal";
 import findAllProductsService from "../../services/find-all-products.service";
 import productsDashboardService from "../../services/product-dashboard.service";
 import type { TProduct, TProductDashboard } from "../../@types/product";
@@ -139,10 +138,7 @@ export default function Home() {
                     <TableData>
                       <div className="flex gap-2">
                         <UpdateProductModal product={product} />
-                        <Button className="bg-red-500 hover:bg-red-400">
-                          <Trash2 size={16} />
-                          <span>Excluir</span>
-                        </Button>
+                        <DestroyProductModal product={product} />
                       </div>
                     </TableData>
                   </TableRow>
