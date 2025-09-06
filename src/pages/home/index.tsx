@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import {
   CircleAlert,
   Package,
-  Trash2,
   TrendingUp,
   TriangleAlert,
 } from "lucide-react";
@@ -22,7 +21,6 @@ import {
   TableRow,
 } from "../../components/table";
 import Header from "../../components/header";
-import Button from "../../components/button";
 import DashboardCard from "../../components/dashboard-card";
 import StoreProductModal from "../../components/store-product-modal";
 import UpdateProductModal from "../../components/update-product-modal";
