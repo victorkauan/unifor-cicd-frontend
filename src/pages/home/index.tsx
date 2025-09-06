@@ -3,7 +3,6 @@ import {
   CircleAlert,
   Package,
   Pencil,
-  Plus,
   Trash2,
   TrendingUp,
   TriangleAlert,
