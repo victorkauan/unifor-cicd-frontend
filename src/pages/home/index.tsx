@@ -26,6 +26,7 @@ import {
 import Header from "../../components/header";
 import Button from "../../components/button";
 import DashboardCard from "../../components/dashboard-card";
+import StoreProductModal from "../../components/store-product-modal";
 import findAllProductsService from "../../services/find-all-products.service";
 import productsDashboardService from "../../services/product-dashboard.service";
 import type { TProduct, TProductDashboard } from "../../@types/product";
@@ -96,9 +97,9 @@ export default function Home() {
   ];
 
   return (
-    <main className="text-neutral-900 h-screen bg-white pt-36 px-8">
+    <main className="text-neutral-900 h-screen bg-white pt-28 px-8">
       <Header />
-      <section className="max-w-7xl mx-auto flex flex-col gap-8">
+      <section className="max-w-7xl mx-auto flex flex-col gap-8 py-8">
         <ul className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {DASHBOARD_CARDS.map((dashboardCard) => (
             <li key={dashboardCard.title}>
@@ -112,10 +113,7 @@ export default function Home() {
               <Subheading>Produtos</Subheading>
               <p>Gerencie seu inventário de produtos.</p>
             </div>
-            <Button>
-              <Plus size={20} />
-              <span>Adicionar produto</span>
-            </Button>
+            <StoreProductModal />
           </div>
           <Table>
             <TableHead>
