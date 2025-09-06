@@ -11,7 +11,7 @@ export default function Button({
     <button
       {...props}
       className={cn(
-        "text-white font-semibold bg-neutral-600 px-4 py-2 rounded flex items-center gap-1 transition-colors hover:cursor-pointer hover:bg-neutral-500",
+        "text-white font-semibold bg-neutral-600 px-4 py-2 rounded flex items-center justify-center gap-1 transition-colors hover:cursor-pointer hover:bg-neutral-500",
         className
       )}
     >
